@@ -1,6 +1,26 @@
 import style from "./Preview.module.css";
+import AdvantagesItem from './AdvantagesItem'
 
 function Preview() {
+  const advantages = [{
+    id: 1,
+    image: 'image-1',
+    logo: 'Отправка день в день',
+    paragraph: 'При заказе до 18:00'
+  },
+  {
+    id: 2,
+    image: 'image-2',
+    logo: 'Легкий возврат/обмен',
+    paragraph: 'В течении 14 дней'
+  },
+  {
+    id: 3,
+    image: 'image-3',
+    logo: 'Сделано в Украине',
+    paragraph: 'Прям в Киеве'
+  }]
+
   return (
     <div className={style["wrapper"]}>
       <div className={style["img-womens"]}></div>
@@ -20,31 +40,7 @@ function Preview() {
       <div className={style["store"]}></div>
 
       <div className={style["advantages"]}>
-
-        <div className={style["send"]}>
-          <div className={style["send-img"]}></div>
-          <div className={style["send-txt"]}>
-            <h2>Отправка день в день</h2>
-            <p>При заказе до 1800</p>
-          </div>
-        </div>
-
-        <div className={style["change"]}>
-          <div className={style["change-img"]}></div>
-          <div className={style["change-txt"]}>
-            <h2>Легкий возврат/обмен</h2>
-            <p>В течении 14 дней</p>
-          </div>
-        </div>
-
-        <div className={style["made"]}>
-          <div className={style["made-img"]}></div>
-          <div className={style["made-txt"]}>
-            <h2>Сделано в Украине</h2>
-            <p>Прям в Киеве</p>
-          </div>
-        </div>
-
+        {advantages.map((el) => <AdvantagesItem key={el.id} logo={el.logo} paragraph ={el.paragraph} image={el.image}/>)}
       </div>
     </div>
   );

@@ -1,23 +1,17 @@
 import style from './Header.module.css'
+import NavItem from './NavItem'
 
 function Header() {
-    
+    const arr = ['НОВИНКИ', 'ПЛАТЬЯ', 'ВЕРХ', 'НИЗ', 'КУРТКИ', 'МЕЛОЧИ', 'КОСТЮМЫ', '#Boorivagirls']
     return (
-
         <div className={style['wrapper']}>
             <div className={style['header-wrapper']}>
                 <div className={style['logo']}></div>
                 <div className={style['basket']}></div>
             </div>
+
             <nav>
-                <p>Новинки</p>
-                <p>Платья</p>
-                <p>Верх</p>
-                <p>Низ</p>
-                <p>куртки</p>
-                <p>Мелочи</p>
-                <p>Костюмы</p>
-                <p>#Boorivagirls</p>
+                {arr.map((el, index) => <NavItem key={index} name={el} />)}
             </nav>
         </div>
     )

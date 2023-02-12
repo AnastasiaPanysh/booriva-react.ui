@@ -47,23 +47,22 @@
   margin-left: 17%;
 }
 .wrapper .description {
-    display: grid;
-    grid-template-columns: repeat(4, 280px);
-    position: relative;
-    top: -20px;
-    margin: 5%;
+  display: grid;
+  grid-template-columns: repeat(4, 280px);
+  position: relative;
+  top: -20px;
+  margin: 5%;
 }
 
 .wrapper .description p {
-    font: 400 16px 'Montserrat';
-    color: #1F1F1F;
-    width: 190px;
-    margin-left: 80px;
-
+  font: 400 16px "Montserrat";
+  color: #1f1f1f;
+  width: 190px;
+  margin-left: 80px;
 }
 
 .wrapper .description p:not(:last-child) {
-    margin-left: 10%;
+  margin-left: 10%;
 }
 
 .wrapper .new-collection {
@@ -88,40 +87,36 @@
     justify-content: space-between;
     margin: auto;
     margin-bottom: 5%;
+} 
+
+.wrapper .section{
+  display: flex;
+  align-items: center;
+  text-align: center;
 }
 
-.wrapper .advantages .send, .change, .made {
-    width: 200px;
-    text-align: center;
-    display: flex;
+.wrapper .image-1 {
+  background-image: url(./assets/Group\ 74.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 81px;
+  height: 98px;
+}
+.wrapper .image-2 {
+  background-image: url(./assets/Group\ 329.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 81px;
+  height: 98px;
+}
+.wrapper .image-3 {
+  background-image: url(./assets/Group\ 330.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 81px;
+  height: 98px;
 }
 
-
-.wrapper .advantages .send-img {
-    background-image: url(./assets/Group\ 74.svg);
-    background-size: contain;
-    background-repeat: no-repeat;
-    width: 81px;
-    height: 98px;
-
-}
-
-.wrapper .advantages .change-img {
-    background-image: url(./assets/Group\ 329.svg);
-    background-size: contain;
-    background-repeat: no-repeat;
-    width: 81px;
-    height: 98px;
-
-
-}
-
-.wrapper .advantages .made-img {
-    background-image: url(./assets/Group\ 330.svg);
-    background-size: contain;
-    background-repeat: no-repeat;
-    width: 81px;
-    height: 98px;
-
-
+.wrapper .paragraph{
+  width: 200px;
 }
