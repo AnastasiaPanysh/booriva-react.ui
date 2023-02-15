@@ -7,6 +7,7 @@
     margin-top: 3%;
 }
 
+
 .wrapper .wrapper-basket {
     display: grid;
     grid-template-columns: repeat(2, 565px);
@@ -18,18 +19,22 @@
 
 .wrapper .wrapper-basket .product {
     display: flex;
+    justify-content: space-between;
     margin: auto;
-
+    width: 400px;
 }
 
 .wrapper .wrapper-basket .product .product-img {
-    background-image: url(./assets/Rectangle\ 189.svg);
+    display: flex;
     background-size: contain;
     background-repeat: no-repeat;
-    width: 133px;
+    width: 170px;
     height: 175px;
 }
 
+.block-info{
+    display: flex;
+}
 
 
 .wrapper .wrapper-basket .product .product-info h2 {

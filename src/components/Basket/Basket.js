@@ -1,73 +1,31 @@
 import style from "./Basket.module.css"
+import basket from "../../context/basket"
+import ProductItem from "./ProductItem"
+import SumProducts from "./SumProducts"
+import CountProducts from "./CountProducts"
+// import { useState } from 'react'
 
-function Basket() {
+
+
+function Basket( name, price, path) {
+
+
+
     return (
         <div className={style["wrapper"]}>
             <div className={style["img-basket"]}></div>
             <div className={style["wrapper-basket"]}>
-                <div className={style["product"]}>
-                    <div className={style["product-img"]}></div>
-                    <div className={style["product-info"]}>
-                        <h2>Бомбер Gone Crazy хаки</h2>
-                        <p className={style["size"]}>S — M</p>
-                        <p className={style["price"]}>2 499 ₴</p>
-                    </div>
-                    <div className={style["product-delete"]}></div>
-                </div>
-                <div className={style["product"]}>
-                    <div className={style["product-img"]}></div>
-                    <div className={style["product-info"]}>
-                        <h2>Бомбер Gone Crazy хаки</h2>
-                        <p className={style["size"]}>S — M</p>
-                        <p className={style["price"]}>2 499 ₴</p>
-                    </div>
-                    <div className={style["product-delete"]}></div>
-                </div>
-                <div className={style["product"]}>
-                    <div className={style["product-img"]}></div>
-                    <div className={style["product-info"]}>
-                        <h2>Бомбер Gone Crazy хаки</h2>
-                        <p className={style["size"]}>S — M</p>
-                        <p className={style["price"]}>2 499 ₴</p>
-                    </div>
-                    <div className={style["product-delete"]}></div>
-                </div>
-                <div className={style["product"]}>
-                    <div className={style["product-img"]}></div>
-                    <div className={style["product-info"]}>
-                        <h2>Бомбер Gone Crazy хаки</h2>
-                        <p className={style["size"]}>S — M</p>
-                        <p className={style["price"]}>2 499 ₴</p>
-                    </div>
-                    <div className={style["product-delete"]}></div>
-                </div>
-                <div className={style["product"]}>
-                    <div className={style["product-img"]}></div>
-                    <div className={style["product-info"]}>
-                        <h2>Бомбер Gone Crazy хаки</h2>
-                        <p className={style["size"]}>S — M</p>
-                        <p className={style["price"]}>2 499 ₴</p>
-                    </div>
-                    <div className={style["product-delete"]}></div>
-                </div>
-                <div className={style["product"]}>
-                    <div className={style["product-img"]}></div>
-                    <div className={style["product-info"]}>
-                        <h2>Бомбер Gone Crazy хаки</h2>
-                        <p className={style["size"]}>S — M</p>
-                        <p className={style["price"]}>2 499 ₴</p>
-                    </div>
-                    <div className={style["product-delete"]}></div>
-                </div>
+                {basket.map(el => <ProductItem key={el.id} name={el.name} price={el.price} path={el.path} />)}
             </div>
-
             <div className={style["total-quantity"]}>
                 <p>Всего: . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .</p>
-                <p className={style["quantity"]}>6 товаров</p>
+                {/* <p className={style["quantity"]}>6 товаров</p> */}
+                {basket.map(el => <CountProducts key={el.id}/>)}
+
             </div>
             <div className={style["total-count"]}>
                 <p>Сумма заказа:  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . </p>
-                <p className={style["count"]}>5 000 ₴</p>
+                {basket.map(el => <SumProducts key={el.id} price={el.price}/>)}
             </div>
             <div className={style["btn"]}></div>
         </div>
