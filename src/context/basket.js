@@ -1,3 +1,5 @@
-const basket = []
 
-export default basket
+
+let basket = []
+
+export {basket}

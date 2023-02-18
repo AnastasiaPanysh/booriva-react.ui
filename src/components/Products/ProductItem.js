@@ -1,13 +1,15 @@
 import style from './Products.module.css'
-import basket from '../../context/basket'
+import { basket } from '../../context/basket'
 
-function ProductItem({ name, price, path }) {
+function ProductItem({ id, name, price, path }) {
 
 
-    function addToBasket() {
-        basket.push({ name, price, path })
-        style.like = `background-image: url(./assets/сердце\ красное.svg)`
-}
+    function addToBasket(event) {
+        const keys = basket.map(el => el.id)
+        if (!keys.includes(id)) basket.push({ id, name, price, path })
+
+        event.target.style = `background-image: url(./assets/сердце\ красное.svg)`
+    }
 
     return (
         <>

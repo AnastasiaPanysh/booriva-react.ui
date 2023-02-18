@@ -1,6 +1,14 @@
 import style from "./Basket.module.css"
+import { basket } from "../../context/basket"
 
-function ProductItem({ name, price, path }) {
+function ProductItem({ setArrayBasket, arrayBasket, id, name, price, path }) {
+
+    function deleteFromBasket() {
+        const filtered = arrayBasket.filter(el => id !== el.id)
+        setArrayBasket(filtered)
+        console.log(filtered);
+    }
+
     return (
         <>
             <div className={style["product"]}>
@@ -12,7 +20,7 @@ function ProductItem({ name, price, path }) {
                         <p className={style["price"]}>{price}</p>
                     </div>
                 </div>
-                <div className={style["product-delete"]}></div>
+                <div onClick={deleteFromBasket} className={style["product-delete"]}></div>
             </div>
         </>
     )

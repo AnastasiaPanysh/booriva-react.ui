@@ -1,9 +1,9 @@
-import basket from '../../context/basket'
+import{basket} from '../../context/basket'
 import style from './Basket.module.css'
 
 function SumProducts() {
 
-    function sumElements () {
+    function sumElements() {
         let result = basket.reduce((sum, el) => {
             return sum + el.price
         }, 0)
