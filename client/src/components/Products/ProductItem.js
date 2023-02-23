@@ -1,34 +1,35 @@
 import style from './Products.module.css'
 import { basket } from '../../context/basket'
+import { useState } from 'react'
 
-function ProductItem({ id, name, price, path }) {
+function ProductItem({ id, title, price }) {
 
+    const [like, setLike] = useState('like')
 
-    function addToBasket(event) {
+    function addToBasket() {
         const keys = basket.map(el => el.id)
-        if (!keys.includes(id)) basket.push({ id, name, price, path })
+        if (!keys.includes(id)) basket.push({ id, title, price })
 
-        event.target.style = `background-image: url(./assets/сердце\\ красное.svg)`;
-        
+        setLike('like-red');
+
     }
 
     return (
-        <>
-            <div className={style['line-shop']}>
 
-                <div className={style['block']}>
-                    <div className={style["block-image"]}>
-                        <img alt={name} className={style['img']} src={require(`../../storage/assets/${path}`)}></img>
-                        <div onClick={addToBasket} className={style['like']}></div>
-                    </div>
-                    <hr></hr>
-                    <div className={style['title-flex']}>
-                        <h1>{name}</h1>
-                        <p>{price}</p>
-                    </div>
+        <div className={style['line-shop']}>
+            <div className={style['block']}>
+                <div className={style["block-image"]}>
+                    <div className={style['img']}></div>
+                    <div onClick={addToBasket} className={style[like]}></div>
+                </div>
+                <hr></hr>
+                <div className={style['title-flex']}>
+                    <h1>{title}</h1>
+                    <p>{price}</p>
                 </div>
             </div>
-        </>
+        </div>
+
     )
 
 }

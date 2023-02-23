@@ -1,3 +1,3 @@
 let basket = []
 
-export {basket}
+export { basket }

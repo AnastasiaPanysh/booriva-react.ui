@@ -24,6 +24,7 @@
 }
 
 .img {
+  background-image: url(./assets/HSCHOOL.png);
   background-size: contain;
   background-repeat: no-repeat;
   width: 456px;
@@ -55,6 +56,16 @@ hr {
 
 .like {
   background-image: url(./assets/сердце\ пустое.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 28px;
+  height: 26px;
+  position: absolute;
+  top: 0;
+  right: 10%;
+}
+.like-red {
+  background-image: url(./assets/сердце\ красное.svg);
   background-size: contain;
   background-repeat: no-repeat;
   width: 28px;
