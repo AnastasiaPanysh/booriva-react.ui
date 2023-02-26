@@ -1,17 +1,21 @@
 import style from './Products.module.css'
-import { basket } from '../../context/basket'
-import { useState } from 'react'
+import {  useState } from 'react'
+import axios from 'axios'
 
 function ProductItem({ id, title, price }) {
 
     const [like, setLike] = useState('like')
 
-    function addToBasket() {
-        const keys = basket.map(el => el.id)
-        if (!keys.includes(id)) basket.push({ id, title, price })
-
-        setLike('like-red');
-
+    async function addToBasket() {
+        try {
+            // const keys = ?.map(el => el.id)
+            // if (!keys.includes(id))
+             await axios.post(`/basket/${id}`)
+            // console.log(response.data);
+            setLike('like-red');
+        } catch (error) {
+            alert(error.message)
+        }
     }
 
     return (

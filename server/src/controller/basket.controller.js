@@ -33,11 +33,13 @@ route.post('/:product_id', async (req, res) => {
     } catch (error) {
         res.status(404).send(error.message)
     }
+
 });
 
 route.delete('/:product_id', async (req, res) => {
     try {
         const { product_id } = req.params;
+
         const products = await deleteBasket(product_id);
         res.status(200).send(products)
     } catch (error) {

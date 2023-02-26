@@ -1,5 +1,4 @@
 import style from "./Basket.module.css"
-import { basket } from "../../context/basket"
 import ProductItem from "./ProductItem"
 import { useEffect, useState } from 'react'
 import axios from "axios"
@@ -12,25 +11,28 @@ function Basket() {
         if (arrayBasket.length === 1) amount = `${arrayBasket.length} товар`
         else if (arrayBasket.length === 2 || arrayBasket.length === 3 || arrayBasket.length === 4) amount = `${arrayBasket.length} товара`
         else amount = `${arrayBasket.length} товаров`
-
         return amount
     }
 
     async function getBasketProducts() {
-        const response = await axios.get('/basket')
-        console.log(response.data);
-        setArrayBasket(response.data)
+        try {
+            const response = await axios.get('/basket')
+            console.log(response.data);
+            setArrayBasket(response.data)
+        } catch (error) {
+            alert(error.message)
+        }
     }
 
     useEffect(() => {
         getBasketProducts()
-    })
+    }, [])
 
     return (
         <div className={style["wrapper"]}>
             <div className={style["img-basket"]}></div>
             <div className={style["wrapper-basket"]}>
-                {arrayBasket.map(el => <ProductItem  key={el.id} id={el.id} title={el.title} price={el.price} />)}
+                {arrayBasket.map(el => <ProductItem key={Math.random()} id={el.id} title={el.title} price={el.price} setArrayBasket={setArrayBasket} />)}
             </div>
 
             <div className={style["total-quantity"]}>

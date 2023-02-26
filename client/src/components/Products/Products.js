@@ -8,20 +8,25 @@ function Products() {
     const [products, setProducts] = useState([])
 
     async function getAllProducts() {
-        const response = await axios.get('/products')
-        // console.log(response.data);
-        setProducts(response.data)
+        try {
+            
+            const response = await axios.get('/products')
+            // console.log(response.data);
+            setProducts(response.data)
+        } catch (error) {
+            alert(error.message)
+        }
     }
 
     useEffect(() => {
         getAllProducts()
-    })
+    }, [])
 
     return (
         <>
             <div className={style['boorivia-store']}> </div>
             <div className={style['products-wrapper']}>
-                {products ? products.map((el) => <ProductItem key={el.id} id={el.id} title={el.title} price={el.price}  />) : null}
+                {products ? products.map((el) => <ProductItem key={el.id} id={el.id} title={el.title} price={el.price} />) : null}
             </div>
 
 
